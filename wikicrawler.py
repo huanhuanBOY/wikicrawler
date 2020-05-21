@@ -14,7 +14,8 @@ seed_page = "https://en.wikipedia.org/wiki/"  #Crawling the English Wikipedia
 class siteCrawler():
     currentCate = ["Visualization_(graphic)"]
     def getSubCategoryNames(self, content):
-        names = re.findall(r"<a class=\"CategoryTreeLabel.+?>.+</a>", content)
+        # names = re.findall(r"<a class=\"CategoryTreeLabel.+?>.+</a>", content)
+        names = re.findall(r"<div class=\"CategoryTreeItem.+?>.+</a>", content)
         catename = []
         for item in names:
             catename.append(re.findall(r"href=\"\/wiki\/Category:.+?\"", item)[0].replace("href=\"/wiki/Category:","").replace("\"",""))
